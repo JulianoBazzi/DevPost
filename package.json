@@ -1,5 +1,5 @@
 {
-  "name": "devpost",
+  "name": "DevPost",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,8 +9,11 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "firebase": "^8.6.8",
+    "mosha-vue-toastify": "^1.0.13",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
+    "vue-loading-overlay": "^4.0.3",
     "vue-router": "^4.0.0-0"
   },
   "devDependencies": {

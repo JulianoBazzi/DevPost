@@ -6,6 +6,8 @@
 </template>
 
 <script lang="ts">
+import "vue-loading-overlay/dist/vue-loading.css";
+import "mosha-vue-toastify/dist/style.css";
 import { Options, Vue } from "vue-class-component";
 import Header from "@/components/Header.vue"; // @ is an alias to /src
 
