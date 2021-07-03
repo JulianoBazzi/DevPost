@@ -102,16 +102,16 @@
     padding-right: 25px;
 }
 
-.headerPerfil{
+.profileHeader{
     margin-bottom: 15px;
 }
 
-.headerPerfil h2{
+.profileHeader h2{
     color: #FFF;
 }
-.headerPerfil span{
+.profileHeader span{
     color: #FFF;
 }
-.headerPerfil span strong{
+.profileHeader span strong{
     color: #FFB800;
 }

@@ -2,7 +2,7 @@
   <div id="header">
     <router-link to="/">DevPost</router-link>
     <div v-if="isAuthenticated">
-      <router-link to="/dashboard"><button>Dashboard</button></router-link>
+      <router-link to="/myprofile"><button>Meu Perfil</button></router-link>
       <button @click="logOut">Sair</button>
     </div>
   </div>
@@ -36,7 +36,6 @@ export default class Header extends Vue {
 
     if (confirm) {
       await firebase.auth().signOut();
-      localStorage.removeItem("user");
       this.isVerifidEmail = true;
       this.isAuthenticated = false;
       this.$router.push("/login");

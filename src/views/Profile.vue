@@ -1,23 +1,28 @@
 <template>
   <div id="profile">
     <Loading v-model:active="isLoading" />
-    <div>
+    <div v-if="!isLoading">
       <div class="profileHeader">
-        <h2>sdsdff</h2>
+        <h2>{{ userName }}</h2>
         <span
-          >Já fez <strong>{{ posts.length }}</strong> postagens em nossa
+          >Já fez <strong>{{ posts.length }}</strong>
+          {{ posts.length > 1 ? "postagens" : "postagem" }} em nossa
           plataforma.</span
         >
       </div>
       <div class="postarea">
-        <article class="post">
-          <p>Este é um post de exemplo...</p>
+        <article class="post" v-for="post in posts" :key="post.id">
+          <h1>{{ post.autor }}</h1>
+          <p>{{ postLength(post.content) }}</p>
           <div class="action-post">
-            <button>Ver publicação completa</button>
+            <button @click="togglePostModal(post)">
+              Ver publicação completa
+            </button>
           </div>
         </article>
       </div>
     </div>
+    <Modal v-if="showModal" :post="selectedPost" @close="togglePostModal()" />
   </div>
 </template>
 
@@ -26,10 +31,12 @@ import firebase from "firebase";
 import IPostDTO from "../dtos/IPostDTO";
 import Loading from "vue-loading-overlay";
 import { Options, Vue } from "vue-class-component";
+import Modal from "@/components/Modal.vue";
 
 @Options({
   components: {
     Loading,
+    Modal,
   },
   props: {
     userId: String,
@@ -39,13 +46,11 @@ export default class Profile extends Vue {
   isLoading = true;
   showModal = false;
   userId!: string;
-  user: firebase.User | null = null;
+  userName = "";
   posts: IPostDTO[] = [];
   selectedPost: IPostDTO | null = null;
 
   async created(): Promise<void> {
-    this.user = null;
-
     await firebase
       .firestore()
       .collection("posts")
@@ -64,9 +69,35 @@ export default class Profile extends Vue {
             created: item.data().created,
           });
         });
-      });
 
-    this.isLoading = false;
+        this.userName = this.posts[0].user_name;
+        this.isLoading = false;
+      });
+  }
+
+  postLength(value: string): string {
+    if (!value) {
+      return "";
+    }
+
+    if (value.length < 200) {
+      return value;
+    }
+
+    return `${value.substring(0, 200)}...`;
+  }
+
+  async togglePostModal(post: IPostDTO): Promise<void> {
+    this.showModal = !this.showModal;
+
+    if (this.showModal) {
+      this.selectedPost = post;
+      return;
+    }
+
+    this.selectedPost = null;
   }
 }
 </script>
+
+<style scoped></style>

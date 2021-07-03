@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 
 import firebase from "@/services/firebaseConnection";
 
-import Dashboard from "../views/Dashboard.vue";
+import Dashboard from "../views/MyProfile.vue";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Profile from "../views/Profile.vue";
@@ -17,8 +17,8 @@ const routes: Array<RouteRecordRaw> = [
     },
   },
   {
-    path: "/dashboard",
-    name: "Dashboard",
+    path: "/myprofile",
+    name: "My Profile",
     component: Dashboard,
     meta: {
       requiresAuth: true,

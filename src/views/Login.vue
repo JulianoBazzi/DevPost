@@ -121,7 +121,7 @@ export default class Login extends Vue {
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password);
 
-      user?.updateProfile({
+      await user?.updateProfile({
         displayName: this.name,
       });
 
