@@ -23,6 +23,9 @@
 
 # DevPost
 
+## Demo
+- [Netlify](https://dev-post.netlify.app/)
+
 ## Technologies
 
 - [Vue.js 3](https://vuejs.org/)
