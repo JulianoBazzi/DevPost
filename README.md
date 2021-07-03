@@ -1,6 +1,7 @@
 <div align="center">
-  <h3>Curso Vue JS do zero ao avançado na prática</h3>  
-  <p>Aprenda Vue JS na pratica a criar aplicações completas do extremo ZERO</p>  
+  <h2>Curso Vue JS do zero ao avançado na prática</h2>  
+  <h3>Aprenda Vue JS na pratica a criar aplicações completas do extremo ZERO</h3>
+  <p>https://www.udemy.com/course/curso-vuejs-completo/</p>
 </div>
 
 <p align="center">
@@ -24,7 +25,7 @@
 # DevPost
 
 ## Demo
-- [Netlify](https://dev-post.netlify.app/)
+- [Demo on Netlify](https://dev-post.netlify.app/)
 
 ## Technologies
 
