@@ -11,7 +11,6 @@ const firebaseConfig = {
   appId: process.env.VUE_APP_FB_APP_ID,
 };
 
-console.log(firebaseConfig);
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
